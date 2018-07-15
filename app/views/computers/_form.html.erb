@@ -72,6 +72,79 @@
            </div>
          </div>
 
+         <div class="field column is-4">
+            <div class="control">
+              <label class="label">Case</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :case, collection: Computer::CASE, prompt: "Select Case" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+           
+
+           <div class="field column is-4">
+            <div class="control">
+              <label class="label">MotherBoard</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :motherboard, collection: Computer::MOTHERBOARD, prompt: "Select Motherboard" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+           <div class="field column is-4">
+            <div class="control">
+              <label class="label">Power Supply</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :power_supply, collection: Computer::POWERSUPPLY, prompt: "Select finish" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+           <div class="field column is-4">
+            <div class="control">
+              <label class="label">Memory</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :memory, collection: Computer::MEMORY, prompt: "Select memory" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+           <div class="field column is-4">
+            <div class="control">
+              <label class="label">Storage</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :hard_drive, collection: Computer::HARDDRIVE, prompt: "Select storage" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+      
+
         <div class="field">
           <div class="control">
             <label class="label">Add images</label>

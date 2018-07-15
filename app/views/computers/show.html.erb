@@ -1,59 +1,73 @@
-<p id="notice"><%= notice %></p>
+<% content_for :body_class, 'bg-light' %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @computer.title %>
-</p>
+<section class="section computer-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @computer.title %></h1>
 
-<p>
-  <strong>Price:</strong>
-  <%= @computer.price %>
-</p>
+      <ul class="pv1">
+        <% if @computer.finish? %>
+        <li class="inline-block pr3"><%= @computer.finish %></li>
+        <% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @computer.description %>
-</p>
+        <li class="inline-block pr3"><%= @computer.memory %></li>
 
-<p>
-  <strong>Finish:</strong>
-  <%= @computer.finish %>
-</p>
+        <% if @computer.case? %>
+        <li class="inline-block pr3"><%= @computer.case %></li>
+        <% end %>
+      </ul>
 
-<p>
-  <strong>Case:</strong>
-  <%= @computer.case %>
-</p>
+      <div class="feature-image">
+        <%= image_tag(@computer.image_url(:default)) %>
+      </div>
 
-<p>
-  <strong>Motherboard:</strong>
-  <%= @computer.motherboard %>
-</p>
+      <div class="content pa4 mt3 bg-white border-radius-3">
 
-<p>
-  <strong>Power supply:</strong>
-  <%= @computer.power_supply %>
-</p>
+      <h3 class="subtitle is-4">Description</h3>
+      <%= @computer.description %>
 
-<p>
-  <strong>Grpahics card:</strong>
-  <%= @computer.grpahics_card %>
-</p>
 
-<p>
-  <strong>Cpu:</strong>
-  <%= @computer.central_processing_unit %>
-</p>
+      <h3 class="subtitle is-4 pt5">Product Specs</h3>
 
-<p>
-  <strong>Ram:</strong>
-  <%= @computer.memory %>
-</p>
+      <table class="table is-narrow">
+        <% if @computer.finish %>
+        <tr>
+          <td class="has-text-weight-bold">Finish:</td>
+          <td><%= @computer.finish %></td>
+        </tr>
+        <% end %>
 
-<p>
-  <strong>Hardrive:</strong>
-  <%= @computer.hard_drive %>
-</p>
+        <% if @computer.case %>
+          <tr>
+            <td class="has-text-weight-bold">Case:</td>
+            <td><%= @computer.case %></td>
+          </tr>
+        <% end %>
 
-<%= link_to 'Edit', edit_computer_path(@computer) %> |
-<%= link_to 'Back', computers_path %>
+        <% if @computer.memory %>
+          <tr>
+            <td class="has-text-weight-bold">memory:</td>
+            <td><%= @computer.memory %></td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td class="has-text-weight-bold">Storage:</td>
+          <td><%= @computer.hard_drive %></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@computer.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @computer.user.name %></p>
+        <%#= button_to 'Add to cart', line_items_path(instrument_id: @instrument), class: 'button is-warning add-to-cart' %>
+      </div>
+    </div>
+  </div>
+
+  <% if computer_author(@computer) %>
+    <%= link_to 'Edit', edit_computer_path(@computer), class: 'button' %>
+  <% end %>
+</section>
