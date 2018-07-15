@@ -15,5 +15,6 @@ class Computer < ApplicationRecord
     CPU = %w{ Intel_Core_i7-8700K AMD_Ryzen_2600 AMD_Threadripper_1950X Intel_Core_i9-7900X}
     HARDDRIVE = %w{ Samsung_860_Pro  Seagate_Barracuda_7200 Crucial_MX500}
     MEMORY = %w{ Corsair_Vengeance GSkill_Ripjaws Kingston_HyperX_Fury }
+    FINISH = %w{ Black White Navy Blue Red Clear Satin Yellow Seafoam }
     
 end
