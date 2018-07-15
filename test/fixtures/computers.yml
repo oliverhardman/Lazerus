@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  price: 9.99
+  description: MyText
+  finish: MyString
+  case: MyString
+  motherboard: MyString
+  power_supply: MyString
+  grpahics_card: MyString
+  cpu: MyString
+  ram: MyString
+  hardrive: MyString
+
+two:
+  title: MyString
+  price: 9.99
+  description: MyText
+  finish: MyString
+  case: MyString
+  motherboard: MyString
+  power_supply: MyString
+  grpahics_card: MyString
+  cpu: MyString
+  ram: MyString
+  hardrive: MyString
