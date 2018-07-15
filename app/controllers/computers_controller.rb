@@ -1,5 +1,6 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /computers
   # GET /computers.json
@@ -14,7 +15,7 @@ class ComputersController < ApplicationController
 
   # GET /computers/new
   def new
-    @computer = Computer.new
+    @computer = current_user.computers.build
   end
 
   # GET /computers/1/edit
@@ -24,7 +25,7 @@ class ComputersController < ApplicationController
   # POST /computers
   # POST /computers.json
   def create
-    @computer = Computer.new(computer_params)
+    @computer = current_user.computers.build(computer_params)
 
     respond_to do |format|
       if @computer.save
@@ -69,6 +70,6 @@ class ComputersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def computer_params
-      params.require(:computer).permit(:title, :price, :description, :finish, :case, :motherboard, :power_supply, :grpahics_card, :cpu, :ram, :hardrive)
+      params.require(:computer).permit(:title, :price, :description, :finish, :case, :motherboard, :power_supply, :grpahics_card, :cpu, :ram, :hardrive, :image)
     end
 end

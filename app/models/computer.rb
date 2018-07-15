@@ -2,7 +2,7 @@ class Computer < ApplicationRecord
     mount_uploader :image, ImageUploader
     belongs_to :user, optional: true
 
-    validates :title, :price, :grpahics_card, :central_processing_unit, :motherboard, :finish, :hard_drive, :central_processing_unit, presence: true
+    validates :title, :price, presence: true
     validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed." }
     
 
