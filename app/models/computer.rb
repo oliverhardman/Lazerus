@@ -1,6 +1,9 @@
 class Computer < ApplicationRecord
-    mount_uploader :image, ImageUploader
+    before_destroy :not_referenced_by_any_line_item
     belongs_to :user, optional: true
+    has_many :line_items
+    mount_uploader :image, ImageUploader
+    
 
     validates :title, :price, presence: true
     validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed." }
@@ -17,4 +20,12 @@ class Computer < ApplicationRecord
     MEMORY = %w{ Corsair Vengeance  GSkill Ripjaws  Kingston HyperX Fury }
     FINISH = %w{ Black White Navy Blue Red Clear Satin Yellow Seafoam }
     
+    private
+
+    def not_referenced_by_any_line_item
+        unless line_items.empty?
+            errors.add(:base, "Line items present")
+            throw :abort
+    end
+end
 end
