@@ -29,7 +29,8 @@ class ComputersController < ApplicationController
     # @computer = current_user.computers.build(computer_params)
     @computer = Computer.new(computer_params)
     @computer.user_id = current_user.id
-
+    logger.debug("111111111")
+    logger.debug(@computer)
     respond_to do |format|
       if @computer.save
         format.html { redirect_to @computer, notice: 'Computer was successfully created.' }

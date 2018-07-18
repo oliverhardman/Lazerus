@@ -12,7 +12,6 @@ class CreateComputers < ActiveRecord::Migration[5.2]
       t.string :central_processing_unit
       t.string :memory
       t.string :hard_drive
-
       t.timestamps
     end
   end
