@@ -26,7 +26,8 @@ class ComputersController < ApplicationController
   # POST /computers
   # POST /computers.json
   def create
-    @computer = current_user.computers.build(computer_params)
+    # @computer = current_user.computers.build(computer_params)
+    @computer = Computer.new(computer_params)
     @computer.user_id = current_user.id
 
     respond_to do |format|
