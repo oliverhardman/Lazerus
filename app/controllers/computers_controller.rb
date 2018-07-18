@@ -15,7 +15,8 @@ class ComputersController < ApplicationController
 
   # GET /computers/new
   def new
-    @computer = current_user.computers.build
+    @computer = current_user.computers.new
+    #@computer = current_user.computers.build
   end
 
   # GET /computers/1/edit
