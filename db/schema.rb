@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_18_061549) do
 
   create_table "computers", force: :cascade do |t|
     t.string "title"
-    t.decimal "price", precision: 5, scale: 3, default: "0.0"
+    t.decimal "price", precision: 10, scale: 3, default: "0.0"
     t.text "description"
     t.string "finish"
     t.string "case"
