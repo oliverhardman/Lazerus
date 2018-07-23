@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'stripe'
 gem 'omniauth-google-oauth2'
+gem 'mailgun-ruby'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -14,7 +14,11 @@ class ChargesController < ApplicationController
         :description => 'Please complete the form below',
         :currency    => 'AUD'
       )
-    
+
+      logger.debug("2222222222")
+      logger.debug(customer.email)
+      
+      MailerModelMailer.transactional_email(customer.email).deliver
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to root_path
