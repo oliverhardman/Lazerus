@@ -14,11 +14,15 @@
  *= require_self
  */
  $link: #444;
- $link-hover: #222;
+ 
  
  @import "bulma";
  @import "functions";
 
+.image {
+  max-height: 50px;
+  max-width: 50px;
+}
 
 .notification {
     border-radius: 0;
@@ -48,6 +52,7 @@
       }
     }
   
+    
     .computer-thumb {
       position: relative;
       max-height: 150px;

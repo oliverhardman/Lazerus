@@ -33,7 +33,7 @@ gem 'gravatar_image_tag'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'stripe'
-
+gem 'omniauth-google-oauth2'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
