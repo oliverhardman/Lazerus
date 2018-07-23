@@ -5,18 +5,6 @@
     <div class="column is-8">
       <h1 class="title is-2"><%= @computer.title %></h1>
 
-      <ul class="pv1">
-        <% if @computer.finish? %>
-        <li class="inline-block pr3"><%= @computer.finish %></li>
-        <% end %>
-
-        <li class="inline-block pr3"><%= @computer.memory %></li>
-
-        <% if @computer.case? %>
-        <li class="inline-block pr3"><%= @computer.case %></li>
-        <% end %>
-      </ul>
-
       <div class="feature-image">
         <%= image_tag(@computer.image_url(:default)) %>
       </div>
@@ -46,15 +34,46 @@
 
         <% if @computer.memory %>
           <tr>
-            <td class="has-text-weight-bold">memory:</td>
+            <td class="has-text-weight-bold">RAM:</td>
             <td><%= @computer.memory %></td>
           </tr>
         <% end %>
 
+      <% if @computer.hard_drive %>
         <tr>
           <td class="has-text-weight-bold">Storage:</td>
           <td><%= @computer.hard_drive %></td>
         </tr>
+          <% end %>
+
+        <% if @computer.grpahics_card %>
+          <tr>
+            <td class="has-text-weight-bold">GPU:</td>
+            <td><%= @computer.grpahics_card %></td>
+          </tr>
+        <% end %>
+
+        <% if @computer.central_processing_unit %>
+          <tr>
+            <td class="has-text-weight-bold">CPU:</td>
+            <td><%= @computer.central_processing_unit %></td>
+          </tr>
+        <% end %>
+
+        <% if @computer.motherboard %>
+          <tr>
+            <td class="has-text-weight-bold">Motherboard:</td>
+            <td><%= @computer.motherboard %></td>
+          </tr>
+        <% end %>
+
+        <% if @computer.power_supply %>
+          <tr>
+            <td class="has-text-weight-bold">Power Supply:</td>
+            <td><%= @computer.power_supply %></td>
+          </tr>
+        <% end %>
+
       </table>
     </div>
     </div>
@@ -62,7 +81,7 @@
       <div class="bg-white pa4 border-radius-3">
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@computer.price) %></h4>
         <p class="has-text-centered mb4">Sold by <%= @computer.user.name %></p>
-        <%= button_to 'Add to cart', line_items_path(computer_id: @computer), class: 'button is-warning add-to-cart' %>
+        <%= button_to 'Add to cart', line_items_path(computer_id: @computer), class: 'button is-warning add-to-cart center' %>
       </div>
     </div>
   </div>
