@@ -12,7 +12,7 @@ class MailerModelMailer < ApplicationMailer
     logger.debug(@email)
 
   # mail to: @email, subject: "Success! You did it."
-  mg_client = Mailgun::Client.new 'c5803a2ccd4b67ad72505a01fd715e8b-0470a1f7-a6061111'
+  mg_client = Mailgun::Client.new Rails.application.credentials.mailgun[:api]
 
 
   message_params =  { from: 'postmaster@sandboxeacc4d69c099459ea4ea10630ae6f341.mailgun.org',
@@ -20,7 +20,7 @@ class MailerModelMailer < ApplicationMailer
                       subject: 'Thank you form your purchase',
                       text:    'Thank you!, Hope to see you again'
                     }
-  mg_client.send_message 'sandboxeacc4d69c099459ea4ea10630ae6f341.mailgun.org', message_params
+  mg_client.send_message Rails.application.credentials.mailgun[:mail], message_params
 
   
   end

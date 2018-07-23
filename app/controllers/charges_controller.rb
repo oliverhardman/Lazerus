@@ -15,8 +15,7 @@ class ChargesController < ApplicationController
         :currency    => 'AUD'
       )
 
-      logger.debug("2222222222")
-      logger.debug(customer.email)
+  
       
       MailerModelMailer.transactional_email(customer.email).deliver
     rescue Stripe::CardError => e
