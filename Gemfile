@@ -37,6 +37,7 @@ gem 'omniauth-google-oauth2'
 gem 'mailgun-ruby'
 gem 'pg_search'
 gem 'rails-erd'
+#test
 
 
 # Use ActiveStorage variant
