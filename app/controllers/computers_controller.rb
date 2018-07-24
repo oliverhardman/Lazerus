@@ -5,8 +5,16 @@ class ComputersController < ApplicationController
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.all
-  end
+    #@computers = Computer.all
+
+        if params[:search].present?
+          @computers = Computer.perform_search(params[:search])
+        else
+          @computers = Computer.all
+        end
+      end
+
+  
 
   # GET /computers/1
   # GET /computers/1.json

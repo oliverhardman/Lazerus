@@ -3,12 +3,34 @@ class Computer < ApplicationRecord
     belongs_to :user, optional: true
     has_many :line_items
     mount_uploader :image, ImageUploader
+    include PgSearch
     
 
     validates :title, :price, presence: true
     validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed." }
     
+    scope :sorted, ->{ order(title: :asc) }
 
+    pg_search_scope :search,
+                    against: [
+                      :title,
+                      :description,
+                      :grpahics_card
+                    ],
+                    using: {
+                      tsearch: {
+                        prefix: true,
+                        normalization: 2
+                      }
+                    }
+  
+    def self.perform_search(keyword)
+      if keyword.present?
+      then Computer.search(keyword)
+      else Computer.all
+      end.sorted
+    end
+  
 
 
     CASE = %w{ NZXT Cooler_Master Corsair Phanteks }

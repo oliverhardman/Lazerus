@@ -35,6 +35,9 @@ gem 'mini_magick'
 gem 'stripe'
 gem 'omniauth-google-oauth2'
 gem 'mailgun-ruby'
+gem 'pg_search'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

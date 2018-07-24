@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :computers
   resources :charges
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations'}
   root 'computers#index'
   
