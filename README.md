@@ -18,6 +18,8 @@ Lazerus is a 2-sided computer marketplace for the 21st century. Each year we gen
 
 `$ bundle install`
 
+`$ rails db:create`
+
 `$ rails db:migrate`
 
 `$ rails server`
